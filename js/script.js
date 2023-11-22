@@ -16,10 +16,18 @@ keys.addEventListener('click', e => {
             } else {
                 display.textContent = displayedNum + keyContent;
             }
+            calculator.dataset.previousKeyType = 'number';
         }
 
         if (action === 'decimal') {
-            dispay.textContent = displayedNum + '.';
+            if(!displayedNum.includes('.')){
+                dispay.textContent = displayedNum + '.';
+            }
+            calculator.dataset.previousKeyType = 'decimal';
+        }
+
+        if (action === 'clear') {
+            calculator.dataset.previousKeyType = 'clear';
         }
 
         if (
@@ -43,6 +51,8 @@ keys.addEventListener('click', e => {
             const secondValue = displayedNum;
 
             dispay.textContent = calculate(firstValue, operator, secondValue);
+
+            calculator.dataset.previousKeyType = 'calculate';
         }
     }
 });
