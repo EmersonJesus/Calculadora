@@ -39,10 +39,13 @@ body {
 }
 
 .calculator-keys button {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%; 
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 20px;
     margin-left: 1.2rem;
     margin-bottom: 1rem;
     border: none;
@@ -52,31 +55,13 @@ body {
 }
 
 .calculator-keys .key-especial {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%; 
+    background-color: #9c9b9b;
 }
 
 .calculator-keys .key-operator {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%; 
-}
-
-.calculator-keys .number {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%; 
+    background-color: #fc5e03;
 }
 
 .calculator-keys .key-equals {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%; 
-}
-
-.calculator-keys .key-decimal {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%; 
+    background-color: #fc5e03;
 }
