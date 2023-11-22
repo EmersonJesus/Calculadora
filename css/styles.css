@@ -29,3 +29,7 @@ body {
     margin-top: 3rem;
     font-size: 50px;
 }
+
+.calculator-keys {
+    display: grid;
+}
