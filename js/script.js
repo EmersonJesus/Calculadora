@@ -22,7 +22,10 @@ keys.addEventListener('click', e => {
         if (action === 'decimal') {
             if(!displayedNum.includes('.')){
                 dispay.textContent = displayedNum + '.';
+            } else if (previousKeyType === 'operator') {
+                dispay.textContent = '0.'
             }
+
             calculator.dataset.previousKeyType = 'decimal';
         }
 
@@ -36,6 +39,14 @@ keys.addEventListener('click', e => {
             action === 'multiply' ||
             action === 'divide'
         ) {
+            calculator.dataset.previousKeyType = 'operator';
+            calculator.dataset.firstValue = displayedNum;
+            calculator.dataset.operator = action;
+
+            if (firstValue && operator) {
+                dispay.textContent = calculate(firstValue, operator, secondValue);
+            }
+
             key.classList.add('is-depressed');
             calculator.dataset.previousKeyType = 'operator';
             calculator.dataset.firstValue = displayedNum;
