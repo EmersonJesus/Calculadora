@@ -46,3 +46,21 @@ body {
     height: 50px;
     border-radius: 100%; 
 }
+
+.calculator-keys .number {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%; 
+}
+
+.calculator-keys .key-equals {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%; 
+}
+
+.calculator-keys .key-decimal {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%; 
+}
