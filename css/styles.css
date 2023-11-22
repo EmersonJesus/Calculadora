@@ -24,10 +24,10 @@ body {
     width: 100%;
     height: 126px;
     display: flex;
-    justify-content:center;
+    justify-content:right;
     align-items: center;
-    margin-left: 9rem;
-    margin-top: 3rem;
+    margin-right: 2rem;
+    padding-right: 2rem;
     font-size: 50px;
 }
 
