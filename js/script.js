@@ -1,8 +1,8 @@
 const calculator = document.querySelector('.calculator');
 const keys = calculator.querySelector('.calculator-keys');
-const dispay = document.querySelector('.calculator-display');
+const display = document.querySelector('.calculator-display');
 
-keys.addEventListener('click', e => {
+keys.addEventListener('click', (e) => {
     if (e.target.matches('button')) {
         const key = e.target;
         const action = key.dataset.action;
@@ -10,8 +10,12 @@ keys.addEventListener('click', e => {
         const displayedNum = display.textContent;
         const previousKeyType = calculator.dataset.previousKeyType;
 
+        Array.from(key.parentNode.children).forEach((k) =>
+            k.classList.remove('is-depressed')
+        );
+
         if (!action) {
-            if(displayedNum === '0' || previousKeyType === 'operator') {
+            if (displayedNum === '0' || previousKeyType === 'operator') {
                 display.textContent = keyContent;
             } else {
                 display.textContent = displayedNum + keyContent;
@@ -20,17 +24,20 @@ keys.addEventListener('click', e => {
         }
 
         if (action === 'decimal') {
-            if(!displayedNum.includes('.')){
-                dispay.textContent = displayedNum + '.';
+            if (!displayedNum.includes('.')) {
+                display.textContent = displayedNum + '.';
             } else if (previousKeyType === 'operator') {
-                dispay.textContent = '0.'
+                display.textContent = '0.';
             }
-
             calculator.dataset.previousKeyType = 'decimal';
         }
 
         if (action === 'clear') {
-            calculator.dataset.previousKeyType = 'clear';
+            display.textContent = '0';
+            delete calculator.dataset.previousKeyType;
+            delete calculator.dataset.firstValue;
+            delete calculator.dataset.operator;
+            return;
         }
 
         if (
@@ -39,12 +46,12 @@ keys.addEventListener('click', e => {
             action === 'multiply' ||
             action === 'divide'
         ) {
-            calculator.dataset.previousKeyType = 'operator';
-            calculator.dataset.firstValue = displayedNum;
-            calculator.dataset.operator = action;
+            const firstValue = calculator.dataset.firstValue;
+            const operator = calculator.dataset.operator;
+            const secondValue = displayedNum;
 
-            if (firstValue && operator) {
-                dispay.textContent = calculate(firstValue, operator, secondValue);
+            if (firstValue && operator && previousKeyType !== 'operator') {
+                display.textContent = calculate(firstValue, operator, secondValue);
             }
 
             key.classList.add('is-depressed');
@@ -53,17 +60,21 @@ keys.addEventListener('click', e => {
             calculator.dataset.operator = action;
         }
 
-        Array.from(key.parentNode.children)
-            .forEach(k => k.classList.remove('is-depressed'));
-
         if (action === 'calculate') {
             const firstValue = calculator.dataset.firstValue;
             const operator = calculator.dataset.operator;
             const secondValue = displayedNum;
 
-            dispay.textContent = calculate(firstValue, operator, secondValue);
+            if (firstValue && operator && previousKeyType !== 'operator') {
+                display.textContent = calculate(firstValue, operator, secondValue);
+                delete calculator.dataset.previousKeyType;
+                delete calculator.dataset.firstValue;
+                delete calculator.dataset.operator;
+            } else {
+                calculator.dataset.firstValue = displayedNum;
+            }
 
-            calculator.dataset.previousKeyType = 'calculate';
+            key.classList.add('is-depressed');
         }
     }
 });
@@ -81,5 +92,5 @@ const calculate = (n1, operator, n2) => {
         result = parseFloat(n1) / parseFloat(n2);
     }
 
-    return result
-}
+    return result;
+};
