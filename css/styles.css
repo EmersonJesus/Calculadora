@@ -14,8 +14,8 @@ body {
 .calculator {
     width: 350px;
     height: 500px;
-    border: 2px solid #000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    border: none;
+    box-shadow: 0 0 10px rgba(1, 1, 1, .4);
     border-radius: 1rem;
     background-color: #fdfdfd;
 }
@@ -50,18 +50,29 @@ body {
     margin-bottom: 1rem;
     border: none;
     background-color: #fdfdfd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 10px rgba(1, 1, 1, .4);
     cursor: pointer;
 }
 
+
 .calculator-keys .key-especial {
-    background-color: #9c9b9b;
+    background-color: #bab8b6;
 }
 
 .calculator-keys .key-operator {
-    background-color: #fc5e03;
+    background-color: #fc7526;
 }
 
 .calculator-keys .key-equals {
-    background-color: #fc5e03;
+    background-color: #fc7526;
+    margin-left: 120%;
+}
+
+.calculator-keys .key-decimal {
+    margin-left: 120%;
+}
+
+.calculator-keys .number-zero {
+    width: 140px;
+    border-radius: 1rem;
 }
