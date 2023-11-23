@@ -9,27 +9,29 @@
 </head>
 <body>
     <div class="calculator">
-        <div class="calculator-display"><span>0</span></div>
+        <div class="calculator-display">
+            <input type="text" class="display">
+        </div>
         <div class="calculator-keys">
-            <button class="key-especial" data-action='clear'>AC</button>
-            <button class="key-especial" data-action="negative">±</button>
-            <button class="key-especial" data-action="percent">%</button>
-            <button class="key-operator" data-action="divide">÷</button>
-            <button class="number">7</button>
-            <button class="number">8</button>
-            <button class="number">9</button>
-            <button class="key-operator" data-action="multiply">&times;</button>
-            <button class="number">4</button>
-            <button class="number">5</button>
-            <button class="number">6</button>
-            <button class="key-operator" data-action="subtract">-</button>
-            <button class="number">1</button>
-            <button class="number">2</button>
-            <button class="number">3</button>
-            <button class="key-operator" data-action="add">+</button>
-            <button class="number-zero">0</button>
-            <button class="key-decimal" data-action="point">.</button>
-            <button class="key-equals" data-action="equals">=</button>
+            <button class="key-especial" data-value='AC'>AC</button>
+            <button class="key-especial" data-value="±">±</button>
+            <button class="key-especial" data-value="%">%</button>
+            <button class="key-operator" data-value="/">÷</button>
+            <button class="number" data-value="7">7</button>
+            <button class="number" data-value="8">8</button>
+            <button class="number" data-value="9">9</button>
+            <button class="key-operator" data-value="*">&times;</button>
+            <button class="number" data-value="4">4</button>
+            <button class="number" data-value="5">5</button>
+            <button class="number" data-value="6">6</button>
+            <button class="key-operator" data-value="-">-</button>
+            <button class="number" data-value="1">1</button>
+            <button class="number" data-value="2">2</button>
+            <button class="number" data-value="3">3</button>
+            <button class="key-operator" data-value="+">+</button>
+            <button class="number-zero" data-value="0">0</button>
+            <button class="key-decimal" data-value=".">.</button>
+            <button class="key-equals" data-value="=">=</button>
         </div>
     </div>
 </body>
