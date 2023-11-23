@@ -26,8 +26,6 @@ body {
     display: flex;
     justify-content:right;
     align-items: center;
-    margin-right: 2rem;
-    padding-right: 2rem;
     font-size: 50px;
 }
 
