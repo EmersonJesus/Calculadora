@@ -12,6 +12,32 @@ class Calculator {
         this.clear();
     }
 
+
+    formatDisplayNumber(number) {
+        const stringNumber = number.toString();
+
+        const integerDigits = parseFloat(stringNumber.split('.')[0]);
+        const decimalDigits = stringNumber.split('.')[1];
+
+        let integerDisplay;
+
+        if (isNaN(integerDigits)) {
+            integerDisplay = '';
+        } else {
+            integerDisplay = integerDigits.toLocaleString('en', {
+                maximumFractionDigits: 0,
+            });
+        }
+
+        if (decimalDigits != null) {
+            return `${integerDisplay}.${parseFloat(decimalDigits).toLocaleString('en', {
+                maximumFractionDigits: 20, // Ajuste o valor conforme necessário
+            })}`;
+        } else {
+            return integerDisplay;
+        }
+    }
+
     calculate() {
         let result;
 
@@ -30,6 +56,11 @@ class Calculator {
                 result = _previousOperand * _currentOperand;
                 break;
             case '÷':
+                if (_currentOperand === 0) {
+                    alert("Não é possível dividir por zero");
+                    this.clear();
+                    return;
+                }
                 result = _previousOperand / _currentOperand;
                 break;
             default:
@@ -42,7 +73,9 @@ class Calculator {
     }
 
     chooseOperation(operation) {
-        if (this.previousOperand != "") {
+        if  (this.currentOperand === '') return;
+
+        if (this.previousOperand !== "") {
             this.calculate();
         }
 
@@ -64,8 +97,8 @@ class Calculator {
     }
 
     updateDisplay(){
-        this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation || ""}`;
-        this.currentOperandTextElement.innerText = this.currentOperand;
+        this.previousOperandTextElement.innerText = `${this.formatDisplayNumber(this.previousOperand)} ${this.operation || ""}`;
+        this.currentOperandTextElement.innerText = this.formatDisplayNumber(this.currentOperand);
     }
 }
 
