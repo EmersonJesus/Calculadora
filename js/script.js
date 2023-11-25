@@ -61,7 +61,7 @@ class Calculator {
     }
 
     appendNumber(number)  {
-        if (this.isResultDisplayed) {
+        if (this.isResultDisplayed && this.operation === undefined) {
             this.clear();
             this.isResultDisplayed = false;
         }
