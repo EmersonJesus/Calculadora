@@ -88,7 +88,9 @@ class Calculator {
     }
 
     toggleNegative() {
-        this.currentOperand = (parseFloat(this.currentOperand) * -1).toString();
+        if (this.currentOperand !== ''){
+            this.currentOperand = (parseFloat(this.currentOperand) * -1).toString();
+        }
     }
 
     calculatePercentage() {
