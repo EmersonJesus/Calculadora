@@ -1,3 +1,6 @@
+const html = document.querySelector('html');
+const toggleTheme = document.querySelector('#switch');
+
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operator]');
 const equalsButton = document.querySelector('[data-equals]');
@@ -162,4 +165,9 @@ negativeButton.addEventListener('click', () => {
 percentageButton.addEventListener('click', () => {
     calculator.calculatePercentage();
     calculator.updateDisplay();
+});
+
+
+toggleTheme.addEventListener('change', function() {
+    html.classList.toggle('dark-mode');
 });

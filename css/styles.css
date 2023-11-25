@@ -3,8 +3,28 @@
     padding: 0;
 }
 
+:root {
+    --body-bg: #fff;
+    --bx-shadow: rgba(0, 0, 0, .5);
+    --calculator-color: #fdfdfd;
+    --buttons-color: #f1f1f1;
+    --number-color: #000;
+    --current-operand-color: #000;
+    --previous-operand-color: #555;
+}
+
+.dark-mode:root{
+    --body-bg: #000;
+    --bx-shadow: rgba(255, 255, 255, 0.5);
+    --calculator-color: #222;
+    --buttons-color: #555;
+    --number-color: #fff;
+    --current-operand-color: #fff;
+    --previous-operand-color: #fdfdfd;
+}
+
 body {
-    background-color: #fff;
+    background-color: var(--body-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,10 +36,10 @@ body {
     max-width: 350px;
     width: 100%;
     border: none;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+    box-shadow: 0 5px 10px  var(--bx-shadow);
     border-radius: 1rem;
     padding: 10px 20px 20px;
-    background-color: #fdfdfd;
+    background-color: var(--calculator-color);
 }
 
 .output {
@@ -35,12 +55,12 @@ body {
 }
 
 .output .previous-operand {
-    color: #363636;
+    color: var(--previous-operand-color);
     font-size: 1rem;
 }
 
 .output .current-operand {
-    color: #000;
+    color: var(--current-operand-color);
     font-size: 2.5rem;
 }
 
@@ -61,15 +81,15 @@ body {
     font-size: 20px;
     margin-left: 1.2rem;
     margin-bottom: 1rem;
-    border: 2px solid #eeecec;
-    background-color: #fdfdfd;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .05);
+    border: 2px none var(--buttons-color);
+    background-color: var(--buttons-color);
     cursor: pointer;
-    color: #000
+    color: var(--number-color);
 }
 
 
 .calculator-keys .key-especial {
+    color: #000;
     background-color: #bab8b6;
 }
 
