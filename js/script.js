@@ -4,6 +4,7 @@ const equalsButton = document.querySelector('[data-equals]');
 const allClearButtons = document.querySelector('[data-all-clear]');
 const previousOperandTextElement = document.querySelector('[data-previous-operand]');
 const currentOperandTextElement = document.querySelector('[data-current-operand]');
+const negativeButton = document.querySelector('[data-negative]');
 
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
@@ -80,6 +81,10 @@ class Calculator {
         this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation || ""}`;
         this.currentOperandTextElement.innerText = this.currentOperand;
     }
+
+    toggleNegative() {
+        this.currentOperand = (parseFloat(this.currentOperand) * -1).toString();
+    }    
 }
 
 const  calculator = new Calculator(
@@ -108,5 +113,10 @@ allClearButtons.addEventListener('click', () => {
 
 equalsButton.addEventListener("click", ()=>  {
     calculator.calculate();
+    calculator.updateDisplay();
+});
+
+negativeButton.addEventListener('click', () => {
+    calculator.toggleNegative();
     calculator.updateDisplay();
 });
