@@ -22,23 +22,27 @@ body {
     background-color: #fdfdfd;
 }
 
-.calculator-display {
+.output {
     width: 100%;
-    height: 126px;
-    justify-content:right;
-    align-items: center;
-    font-size: 50px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.output .previous-operand {
+    color: #363636;
+    font-size: 1rem;
 }
 
-.display {
-    width: 100%;
-    height: 80px;
-    outline: none;
-    border: none;
-    text-align: right;
-    margin-bottom: 20px;
-    font-size: 30px;
+.output .current-operand {
+    color: #000;
+    font-size: 2.5rem;
 }
+
 .calculator-keys {
     width: 100%;
     height: 20%;
@@ -56,10 +60,11 @@ body {
     font-size: 20px;
     margin-left: 1.2rem;
     margin-bottom: 1rem;
-    border: none;
+    border: 2px solid #eeecec;
     background-color: #fdfdfd;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .05);
     cursor: pointer;
+    color: #000
 }
 
 
