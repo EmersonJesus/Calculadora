@@ -13,6 +13,7 @@
     --number-color: #000;
     --current-operand-color: #000;
     --previous-operand-color: #555;
+    --label-color: #ebebeb;
 }
 
 .dark-mode:root{
@@ -23,6 +24,7 @@
     --number-color: #fff;
     --current-operand-color: #fff;
     --previous-operand-color: #fdfdfd;
+    --label-color: #111;
 }
 
 body {
@@ -126,7 +128,7 @@ body {
 }
 
 .label {
-    background-color: #111;
+    background-color: var(--label-color);
     border-radius: 50px;
     cursor: pointer;
     display: flex;
@@ -140,7 +142,7 @@ body {
 }
 
 .label  .ball {
-    background-color: #fff;
+    background-color: #fdfdfd;
     border-radius: 50%;
     position: absolute;
     top: 2px;
@@ -157,9 +159,21 @@ body {
 }
 
 .fa-moon {
-    color: #f1c40f;
+    color: #555;
 }
 
 .fa-sun {
-    color: #f39c12;
+    color: #fdfdfd;
+}
+
+@media (max-width: 450px) {
+    .toggle {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 150%;
+    }
+
+    .calculator {
+        padding: 10px 10px 10px;
+    }
 }
