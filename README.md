@@ -16,23 +16,6 @@ Veja a calculadora em ação [aqui](https://calcbasica.netlify.app/).
 - CSS
 - JavaScript
 
-Calculadora Simples
-
-Uma calculadora simples desenvolvida utilizando HTML, CSS e JavaScript.
-
-Calculadora Simples
-Visão Geral
-
-Esta calculadora possui as operações básicas (adição, subtração, multiplicação e divisão), além de funcionalidades adicionais como trocar o sinal do número e calcular porcentagens.
-Demo
-
-Veja a calculadora em ação aqui.
-Tecnologias Utilizadas
-
-    HTML
-    CSS
-    JavaScript
-
 # Funcionalidades
 
 - Adição, Subtração, Multiplicação e Divisão
